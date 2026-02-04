@@ -24,7 +24,4 @@ object AppModule {
         ).fallbackToDestructiveMigration()
             .build()
     }
-
-    @Provides
-    fun provideBorrameDao(db: PrimerParcialDb) = db.borrameDao()
 }

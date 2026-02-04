@@ -2,7 +2,6 @@ package com.example.andy_javier_ap2_p1.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.andy_javier_ap2_p1.data.local.dao.BorrameDao
 import com.example.andy_javier_ap2_p1.data.local.entities.BorrameEntity
 
 @Database(
@@ -10,6 +9,4 @@ import com.example.andy_javier_ap2_p1.data.local.entities.BorrameEntity
     version = 1,
     exportSchema = false
 )
-abstract class PrimerParcialDb : RoomDatabase() {
-    abstract fun borrameDao(): BorrameDao
-}
+abstract class PrimerParcialDb : RoomDatabase()

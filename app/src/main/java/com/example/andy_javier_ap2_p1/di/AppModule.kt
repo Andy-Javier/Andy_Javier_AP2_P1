@@ -2,7 +2,10 @@ package com.example.andy_javier_ap2_p1.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.andy_javier_ap2_p1.data.local.dao.PrimerParcialDao
 import com.example.andy_javier_ap2_p1.data.local.database.PrimerParcialDb
+import com.example.andy_javier_ap2_p1.data.repository.PrimerParcialRepositoryImpl
+import com.example.andy_javier_ap2_p1.domain.repository.PrimerParcialRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,5 +26,17 @@ object AppModule {
             "PrimerParcial.db"
         ).fallbackToDestructiveMigration()
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providePrimerParcialDao(db: PrimerParcialDb): PrimerParcialDao {
+        return db.primerParcialDao()
+    }
+
+    @Provides
+    @Singleton
+    fun providePrimerParcialRepository(primerParcialDao: PrimerParcialDao): PrimerParcialRepository {
+        return PrimerParcialRepositoryImpl(primerParcialDao)
     }
 }

@@ -2,10 +2,10 @@ package com.example.andy_javier_ap2_p1.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.andy_javier_ap2_p1.data.local.dao.PrimerParcialDao
-import com.example.andy_javier_ap2_p1.data.local.database.PrimerParcialDb
-import com.example.andy_javier_ap2_p1.data.repository.PrimerParcialRepositoryImpl
-import com.example.andy_javier_ap2_p1.domain.repository.PrimerParcialRepository
+import com.example.andy_javier_ap2_p1.data.local.dao.CervezaDao
+import com.example.andy_javier_ap2_p1.data.local.database.CervezaDb
+import com.example.andy_javier_ap2_p1.data.repository.CervezaRepositoryImpl
+import com.example.andy_javier_ap2_p1.domain.repository.CervezaRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,24 +19,24 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providePrimerParcialDb(@ApplicationContext appContext: Context): PrimerParcialDb {
+    fun provideCervezaDb(@ApplicationContext appContext: Context): CervezaDb {
         return Room.databaseBuilder(
             appContext,
-            PrimerParcialDb::class.java,
-            "PrimerParcial.db"
+            CervezaDb::class.java,
+            "Cerveza.db"
         ).fallbackToDestructiveMigration()
             .build()
     }
 
     @Provides
     @Singleton
-    fun providePrimerParcialDao(db: PrimerParcialDb): PrimerParcialDao {
-        return db.primerParcialDao()
+    fun provideCervezaDao(db: CervezaDb): CervezaDao {
+        return db.CervezaDao()
     }
 
     @Provides
     @Singleton
-    fun providePrimerParcialRepository(primerParcialDao: PrimerParcialDao): PrimerParcialRepository {
-        return PrimerParcialRepositoryImpl(primerParcialDao)
+    fun provideCervezaRepository(cervezaDao: CervezaDao): CervezaRepository {
+        return CervezaRepositoryImpl(cervezaDao)
     }
 }

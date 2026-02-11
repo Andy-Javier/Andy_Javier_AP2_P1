@@ -11,14 +11,14 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PrimerParcialEditScreen(
+fun CervezaEditScreen(
     id: Int?,
     onNavigateBack: () -> Unit
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(if (id == null) "New Item" else "Edit Item") },
+                title = { Text(if (id == null) "Nueva cerveza" else "Editar cerveza") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -42,6 +42,6 @@ fun PrimerParcialEditScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun PrimerParcialEditPreview() {
-    PrimerParcialEditScreen(id = null, onNavigateBack = {})
+fun CervezaEditPreview() {
+    CervezaEditScreen(id = null, onNavigateBack = {})
 }

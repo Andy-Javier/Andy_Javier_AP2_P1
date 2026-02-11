@@ -10,18 +10,18 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.andy_javier_ap2_p1.data.local.entities.BorrameEntity
+import com.example.andy_javier_ap2_p1.data.local.entities.CervezaEntity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PrimerParcialListScreen(
-    items: List<BorrameEntity>,
+fun CervezaListScreen(
+    items: List<CervezaEntity>,
     onAdd: () -> Unit,
     onEdit: (Int) -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Primer Parcial List") })
+            TopAppBar(title = { Text("Cerveza List") })
         },
         floatingActionButton = {
             FloatingActionButton(onClick = onAdd) {
@@ -36,8 +36,8 @@ fun PrimerParcialListScreen(
         ) {
             items(items) { item ->
                 ListItem(
-                    headlineContent = { Text(item.descripcion) },
-                    modifier = Modifier.clickable { item.id?.let { onEdit(it) } }
+                    headlineContent = { Text(item.Nombre) },
+                    modifier = Modifier.clickable { item.IdCerveza?.let { onEdit(it) } }
                 )
                 HorizontalDivider()
             }
@@ -47,8 +47,8 @@ fun PrimerParcialListScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun PrimerParcialListPreview() {
-    PrimerParcialListScreen(
+fun CervezaListPreview() {
+    CervezaListScreen(
         items = emptyList(),
         onAdd = {},
         onEdit = {}

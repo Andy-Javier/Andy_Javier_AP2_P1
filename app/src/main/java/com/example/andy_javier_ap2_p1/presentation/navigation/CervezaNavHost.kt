@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
 import com.example.andy_javier_ap2_p1.presentation.edit.CervezaEditScreen
 import com.example.andy_javier_ap2_p1.presentation.list.CervezaListScreen
 
@@ -16,15 +15,12 @@ fun CervezaNavHost(navController: NavHostController) {
     ) {
         composable<Screen.List> {
             CervezaListScreen(
-                items = emptyList(),
-                onAdd = { navController.navigate(Screen.Edit()) },
+                onAdd = { navController.navigate(Screen.Edit(-1)) },
                 onEdit = { id -> navController.navigate(Screen.Edit(id)) }
             )
         }
-        composable<Screen.Edit> { backStackEntry ->
-            val edit = backStackEntry.toRoute<Screen.Edit>()
+        composable<Screen.Edit> {
             CervezaEditScreen(
-                id = edit.id,
                 onNavigateBack = { navController.navigateUp() }
             )
         }

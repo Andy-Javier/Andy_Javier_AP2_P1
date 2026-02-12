@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.andy_javier_ap2_p1.presentation.navigation.PrimerParcialNavHost
+import com.example.andy_javier_ap2_p1.presentation.navigation.CervezaNavHost
 import com.example.andy_javier_ap2_p1.ui.theme.Andy_Javier_AP2_P1Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                             .fillMaxSize()
                             .padding(innerPadding)
                     ) {
-                        PrimerParcialNavHost(
+                        CervezaNavHost(
                             navController = navController
                         )
                     }

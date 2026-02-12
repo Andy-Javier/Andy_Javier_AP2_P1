@@ -1,5 +1,8 @@
-package com.example.andy_javier_ap2_p1.domain.model
+package com.example.andy_javier_ap2_p1.domain.models
 
-class Cerveza {
-
-}
+data class Cerveza(
+    val idCerveza: Int? = null,
+    val nombre: String = "",
+    val marca: String = "",
+    val puntuacion: Int = 1
+)

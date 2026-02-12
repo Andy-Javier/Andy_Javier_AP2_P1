@@ -5,17 +5,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.andy_javier_ap2_p1.presentation.edit.PrimerParcialEditScreen
-import com.example.andy_javier_ap2_p1.presentation.list.PrimerParcialListScreen
+import com.example.andy_javier_ap2_p1.presentation.edit.CervezaEditScreen
+import com.example.andy_javier_ap2_p1.presentation.list.CervezaListScreen
 
 @Composable
-fun PrimerParcialNavHost(navController: NavHostController) {
+fun CervezaNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = Screen.List
     ) {
         composable<Screen.List> {
-            PrimerParcialListScreen(
+            CervezaListScreen(
                 items = emptyList(),
                 onAdd = { navController.navigate(Screen.Edit()) },
                 onEdit = { id -> navController.navigate(Screen.Edit(id)) }
@@ -23,7 +23,7 @@ fun PrimerParcialNavHost(navController: NavHostController) {
         }
         composable<Screen.Edit> { backStackEntry ->
             val edit = backStackEntry.toRoute<Screen.Edit>()
-            PrimerParcialEditScreen(
+            CervezaEditScreen(
                 id = edit.id,
                 onNavigateBack = { navController.navigateUp() }
             )

@@ -21,7 +21,7 @@ fun CervezaListScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Cerveza List") })
+            TopAppBar(title = { Text("Lista de Cervezas") })
         },
         floatingActionButton = {
             FloatingActionButton(onClick = onAdd) {
